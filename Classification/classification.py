@@ -75,7 +75,7 @@ def random_forest_cls(train_df, test_df):
     pred = grid_search.best_estimator_.predict(test_ft)
 
     # Display confusion matrix
-    print("\n\n< Confusion matrix of ensemble result >")
+    print("\n\n< Confusion matrix >")
     print(confusion_matrix(test_tar, pred))
     print(classification_report(test_tar, pred))
 

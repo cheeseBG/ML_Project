@@ -100,7 +100,7 @@ bank.drop('default', axis=1, inplace=True)
 print(bank.poutcome.value_counts())
 # Combine 'unknown' and 'other' as 'other' isn't really match with either 'success' or 'failure'
 bank['poutcome'] = bank['poutcome'].replace(['other'], 'unknown')
-print(bank.poutcome.value_counts())
+print(bank.poutcome.value_counts())5252
 
 # every customer has been contacted -> No effect to target
 bank.drop('contact', axis=1, inplace=True)
