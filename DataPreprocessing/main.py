@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Import Dataset
-data = pd.read_csv('./Data/bank.csv')
+data = pd.read_csv('../Data/bank-full.csv')
 print(data.info())
 print(data.shape)
 
@@ -100,7 +100,7 @@ bank.drop('default', axis=1, inplace=True)
 print(bank.poutcome.value_counts())
 # Combine 'unknown' and 'other' as 'other' isn't really match with either 'success' or 'failure'
 bank['poutcome'] = bank['poutcome'].replace(['other'], 'unknown')
-print(bank.poutcome.value_counts())5252
+print(bank.poutcome.value_counts())
 
 # every customer has been contacted -> No effect to target
 bank.drop('contact', axis=1, inplace=True)
