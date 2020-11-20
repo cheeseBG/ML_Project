@@ -238,7 +238,7 @@ ensemble_score, ensemble_fpr, ensemble_tpr = ensemble_cls(train_data, test_data,
 plt.plot(rf_fpr, rf_tpr, linewidth=2, label='RF, Area(AUC) = %0.2f' % rf_score, color='red')
 plt.plot(lr_fpr, lr_tpr, linewidth=2, label='LR, Area(AUC) = %0.2f' % lr_score, color='green')
 plt.plot(svm_fpr, svm_tpr, linewidth=2, label='SVM, Area(AUC) = %0.2f' % svm_score, color='blue')
-plt.plot(ensemble_fpr, ensemble_tpr, linewidth=2, label='Area(AUC) = %0.2f' % ensemble_score, color='yellow')
+plt.plot(ensemble_fpr, ensemble_tpr, linewidth=2, label='Ensemble, Area(AUC) = %0.2f' % ensemble_score, color='yellow')
 plt.plot([0, 1], [0, 1], 'k--')
 plt.axis([0, 1, 0, 1])
 plt.title('Comparison ROC Curve')
