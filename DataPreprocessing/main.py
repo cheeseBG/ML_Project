@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Import Dataset
-data = pd.read_csv('../Data/bank-full.csv')
+data = pd.read_csv('../Data/bank.csv')
 print(data.info())
 print(data.shape)
 
@@ -113,4 +113,6 @@ bank.drop('day', axis=1, inplace=True)
 bank.drop('job', axis=1, inplace=True)
 
 bank.columns = ['marital', 'education', 'balance', 'housing', 'loan', 'duration', 'campaign', 'previous', 'poutcome', 'deposit']
-bank.to_csv('./Data/After_bank.csv', header=False, index=False)
+
+print(bank)
+bank.to_csv('../Data/After_bank.csv', header=True, index=False)
