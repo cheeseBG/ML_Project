@@ -1,21 +1,21 @@
 '''
 Project Title : Bank Marketing
 Author : Lee Ye Jin
-Last Modified : 2020.11.
+Last Modified : 2020.11.21
 '''
 
-import os
 import random
 import warnings
 warnings.filterwarnings(action='ignore')
 import pandas as pd
+import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Import Dataset
-data = pd.read_csv('../Data/bank.csv')
-print(data.info())
-print(data.shape)
+data = pd.read_csv('C:/Users/User/Desktop/bank/bank.csv')
+print('Check the dataset>> ', data.info())
+print('Check the dataset shape>> ', data.shape)
 
 # Make dirty data
 for i in range(len(data)):
@@ -24,17 +24,17 @@ for i in range(len(data)):
         k = random.randint(0, len(data.columns.tolist())-1)
         data.iloc[i, k] = None
 
-data.to_csv(os.getcwd() + "\\bank_dirty.csv", mode='w', index=False)  # save it as dirty version
+data.to_csv('C:/Users/User/Desktop/bank/DirtyBank.csv', index=False)
 
 # Data Exploration
 # Count of null values
-bank = pd.read_csv('bank_dirty.csv')
+bank = pd.read_csv('C:/Users/User/Desktop/bank/DirtyBank.csv')
 missing = bank.isnull()
-print(missing.sum())
+print('\nCheck the sum of missing value>>\n', missing.sum())
 
 # Clear dirty data
 bank = bank.dropna(axis=0)
-print(bank.isnull().sum())
+print('\nAfter drop missing value>>\n', bank.isnull().sum())
 
 # Explore numerical values
 fig, axs = plt.subplots(2, 4, sharex=False, sharey=False, figsize=(20, 15))
@@ -53,25 +53,32 @@ for num_column in num_columns:
 plt.show()
 
 # Remove outliers
-print(bank.groupby(['deposit', 'pdays']).size())
-# Because pdays has -1 value too much
-bank.drop('pdays', axis=1, inplace=True)
-
-# Age value is variable -> This column can be ignored
-print(bank.groupby('age', sort=True)['age'].count())
+# Age column can be ignored
+print(bank.groupby(['deposit', 'age'], sort=True)['age'].size())
 bank.drop('age', axis=1, inplace=True)
 
-print(bank.groupby(['deposit', 'balance'], sort=True)['balance'].count())
-print(bank.groupby(['deposit', 'duration'], sort=True)['duration'].count())
+print(bank.groupby(['deposit', 'pdays']).size())
+# pdays -1 values are too much
+bank.drop('pdays', axis=1, inplace=True)
 
-print(bank.groupby(['deposit', 'campaign'], sort=True)['campaign'].count())
+# Balance outlier should not be removed(Balance goes high -> client has more interest)
+print(bank.groupby(['deposit', 'balance'], sort=True)['balance'].size())
+
+# Duration same as Balance
+print(bank.groupby(['deposit', 'duration'], sort=True)['duration'].size())
+
+# Assume >= 33 are outlier
+print(bank.groupby(['deposit', 'campaign'], sort=True)['campaign'].size())
 bank = bank[bank['campaign'] < 33]
 
-print(bank.groupby(['deposit', 'previous'], sort=True)['previous'].count())
+# Assume >= 31 are outlier
+print(bank.groupby(['deposit', 'previous'], sort=True)['previous'].size())
 bank = bank[bank['previous'] < 31]
 
+# After removing outliers in Numeric values
+print('\nCheck the dataset shape after removing>> ', bank.shape)
+
 # Explore categorical values
-print(bank.shape)
 cat_columns = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome']
 fig, axs = plt.subplots(3, 3, sharex=False, sharey=False, figsize=(18, 15))
 
@@ -94,25 +101,20 @@ for cat_column in cat_columns:
 
 plt.show()
 
-# Because default has 'No' value too much
-bank.drop('default', axis=1, inplace=True)
+# Relationship between categorical values and target value(Deposit)
+for cat_column in cat_columns:
+    sns.catplot(x='deposit', col=cat_column, kind='count', data=bank)
+plt.show()
 
-print(bank.poutcome.value_counts())
-# Combine 'unknown' and 'other' as 'other' isn't really match with either 'success' or 'failure'
-bank['poutcome'] = bank['poutcome'].replace(['other'], 'unknown')
-print(bank.poutcome.value_counts())
+# Remove outliers
+# job values have Unknown(It is not important info and should be removed)
+bank = bank[bank.job != 'unknown']
 
-# every customer has been contacted -> No effect to target
-bank.drop('contact', axis=1, inplace=True)
+# marital values have Unknown(It is not important info and should be removed)
+bank = bank[bank.marital != 'unknown']
 
-# Day and Month value -> No effect to target
-# Categorical data
-bank.drop('month', axis=1, inplace=True)
-# Numerical data
-bank.drop('day', axis=1, inplace=True)
-bank.drop('job', axis=1, inplace=True)
+# education values have very small 'illiterate'(only 18)
+bank = bank[bank.marital != 'illiterate']
 
-bank.columns = ['marital', 'education', 'balance', 'housing', 'loan', 'duration', 'campaign', 'previous', 'poutcome', 'deposit']
-
-print(bank)
-bank.to_csv('../Data/After_bank.csv', header=True, index=False)
+# Save the dataset name: After_bank.csv
+bank.to_csv('C:/Users/User/Desktop/bank/After_bank.csv', index=False)
