@@ -1,7 +1,7 @@
 '''
 Project Title : Bank Marketing
 Author : Lee Ye Jin
-Last Modified : 2020.11.21
+Last Modified : 2020.11.27
 '''
 
 import random
@@ -11,6 +11,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 # Import Dataset
 data = pd.read_csv('C:/Users/User/Desktop/bank/bank.csv')
@@ -36,6 +37,9 @@ print('\nCheck the sum of missing value>>\n', missing.sum())
 bank = bank.dropna(axis=0)
 print('\nAfter drop missing value>>\n', bank.isnull().sum())
 
+# Save file to use SelectKBest
+bank.to_csv('C:/Users/User/Desktop/bank/UsingKBest.csv', index=False)
+
 # Explore numerical values
 fig, axs = plt.subplots(2, 4, sharex=False, sharey=False, figsize=(20, 15))
 
@@ -50,7 +54,7 @@ for num_column in num_columns:
 
     counter += 1
 
-plt.show()
+# plt.show()
 
 # Remove outliers
 # Age column can be ignored
@@ -99,12 +103,12 @@ for cat_column in cat_columns:
 
     counter += 1
 
-plt.show()
+# plt.show()
 
 # Relationship between categorical values and target value(Deposit)
 for cat_column in cat_columns:
     sns.catplot(x='deposit', col=cat_column, kind='count', data=bank)
-plt.show()
+# plt.show()
 
 # Remove outliers
 # job values have Unknown(It is not important info and should be removed)
@@ -118,3 +122,27 @@ bank = bank[bank.marital != 'illiterate']
 
 # Save the dataset name: After_bank.csv
 bank.to_csv('C:/Users/User/Desktop/bank/After_bank.csv', index=False)
+
+from sklearn.preprocessing import LabelEncoder
+from sklearn.feature_selection import SelectKBest, chi2
+
+# Read Preprocessed dataset
+df = pd.read_csv('C:/Users/User/Desktop/bank/After_bank.csv')
+UsingKBest = pd.read_csv('C:/Users/User/Desktop/bank/UsingKBest.csv')
+
+# Encoding categorical data to numerical data
+encoding_df = df.apply(LabelEncoder().fit_transform)
+new_df = encoding_df
+
+encoding_select = UsingKBest.apply(LabelEncoder().fit_transform)
+select_df = encoding_select
+
+# Add SelectKBest
+X = select_df.drop(columns=['deposit'])
+y = select_df['deposit'].values
+selector = SelectKBest(chi2, k=10)
+selector.fit(X, y)
+
+X_new = selector.transform(X)
+print('After Selector>> ', X_new.shape)
+print('Which Features are selected(in kBest)>>\n', X.columns[selector.get_support(indices=True)].tolist())
