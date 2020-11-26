@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb1024d-2e52-4b84-ba99-625025a05929" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/Indicators.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataPreprocessing/clustering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataPreprocessing/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataPreprocessing/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataPreprocessing/Data preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataPreprocessing/cluster_data_preprocessing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +18,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataPreprocessing/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="228">
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding>
+                <element signature="e#87#100#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DataPreprocessing/Data preprocessing.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataPreprocessing/cluster_data_preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="363">
+              <caret line="461" lean-forward="true" selection-start-line="461" selection-end-line="461" />
               <folding>
                 <element signature="e#110#129#0" expanded="true" />
               </folding>
@@ -34,7 +39,41 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DataPreprocessing/clustering.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-65">
+              <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="210" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data/sample/1960r.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2873">
+              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>result_df</find>
+      <find>입니다</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,12 +83,15 @@
       <list>
         <option value="$PROJECT_DIR$/Classification/classification.py" />
         <option value="$PROJECT_DIR$/DataPreprocessing/main.py" />
+        <option value="$PROJECT_DIR$/DataPreprocessing/Data preprocessing.py" />
+        <option value="$PROJECT_DIR$/DataPreprocessing/cluster_data_preprocessing.py" />
+        <option value="$PROJECT_DIR$/DataPreprocessing/clustering.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="271" />
-    <option name="y" value="13" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="552" />
+    <option name="y" value="52" />
     <option name="width" value="1235" />
     <option name="height" value="1040" />
   </component>
@@ -78,6 +120,12 @@
             <path>
               <item name="ML_Project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\jji44\Documents\GitHub\ML_Project" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="sample" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ML_Project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\jji44\Documents\GitHub\ML_Project" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="DataPreprocessing" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
@@ -102,6 +150,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jji44\Documents\GitHub\ML_Project\Data" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -114,7 +167,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.clustering">
+    <configuration name="Data preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ML_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataPreprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\jji44\Documents\GitHub\ML_Project\DataPreprocessing\cluster_data_preprocessing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="clustering" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ML_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataPreprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataPreprocessing/clustering.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ML_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,6 +233,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.clustering" />
+        <item itemvalue="Python.Data preprocessing" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -156,14 +253,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="173" y="45" width="988" height="832" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30567226" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19220607" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.57" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -195,19 +293,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataPreprocessing/main.py">
+    <entry file="file://$PROJECT_DIR$/Data/sample/1960i.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="19">
+          <caret line="1" column="72" lean-forward="true" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataPreprocessing/Data preprocessing.py">
+    <entry file="file://$PROJECT_DIR$/Data/sample/1960r.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="-2873">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/sample/1960u.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataPreprocessing/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#87#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataPreprocessing/cluster_data_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="461" lean-forward="true" selection-start-line="461" selection-end-line="461" />
           <folding>
             <element signature="e#110#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="6" selection-end-line="29" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/ML_backup/DataPreprocessing/Data preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14866" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataPreprocessing/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="210" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
