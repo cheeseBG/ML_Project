@@ -23,7 +23,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Read Preprocessed dataset
-df = pd.read_csv("../Data/After_bank.csv")
+df = pd.read_csv("../Data/UsingKBest.csv")
 
 # Encoding categorical data to numerical data
 encoding_df = df.apply(LabelEncoder().fit_transform)
