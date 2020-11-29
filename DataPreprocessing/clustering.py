@@ -11,6 +11,8 @@ from sklearn.metrics import silhouette_score,silhouette_samples
 import numpy as np
 from matplotlib import cm
 
+threshold = 0.6
+
 
 # Silhouette function
 def plotSilhouette(X, pred):
@@ -59,7 +61,7 @@ def em(n_components, max_iter, df, inform):
                     max_score = s_score
                     max_score_model = label
                     max_score_df = d
-                if s_score > 0.8:
+                if s_score > threshold:
                     labels = gmm.predict(d)
                     plt.scatter(d[d.columns[0]], d[d.columns[1]], c=labels, s=40, cmap='viridis')
                     plt.title((n, 'components with', m, 'iteratons'))
@@ -94,7 +96,7 @@ def dbscan(dist_func, eps, min_samples, df, inform):
                             max_score = s_score
                             max_score_model = db
                             max_score_df = d
-                        if s_score > 0.8:
+                        if s_score > threshold:
                             labels = db.labels_
                             plt.scatter(d[d.columns[0]], d[d.columns[1]], c=labels, s=40, cmap='viridis')
                             if dist_func == 'euclidean':
@@ -125,7 +127,7 @@ def kmeans(n_cluster, max_iter, df, inform):
                     max_score_model = kmeans
                     max_score_df = d
 
-                if s_score > 0.8:
+                if s_score > threshold:
                     labels = pd.DataFrame(kmeans.labels_)
                     plt.scatter(d[d.columns[0]], d[d.columns[1]], c=labels, s=40, cmap='viridis')
                     plt.title((n, 'N_cluster with', m, 'max_iter'))
